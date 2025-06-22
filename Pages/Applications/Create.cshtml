@@ -1,0 +1,168 @@
+﻿@page
+@model BAIS3230Project.Pages.Applications.CreateModel
+
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Application</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Application.LastName" class="control-label"></label>
+                <input asp-for="Application.LastName" class="form-control" />
+                <span asp-validation-for="Application.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Application.FirstName" class="control-label"></label>
+                <input asp-for="Application.FirstName" class="form-control" />
+                <span asp-validation-for="Application.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Application.Address" class="control-label"></label>
+                <input asp-for="Application.Address" class="form-control" />
+                <span asp-validation-for="Application.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Application.City" class="control-label"></label>
+                <input asp-for="Application.City" class="form-control" />
+                <span asp-validation-for="Application.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Application.Province" class="control-label"></label>
+                <input asp-for="Application.Province" class="form-control" />
+                <span asp-validation-for="Application.Province" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Application.PostalCode" class="control-label"></label>
+                <input asp-for="Application.PostalCode" class="form-control" />
+                <span asp-validation-for="Application.PostalCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Application.Phone" class="control-label"></label>
+                <input asp-for="Application.Phone" class="form-control" />
+                <span asp-validation-for="Application.Phone" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Application.Email" class="control-label"></label>
+                <input asp-for="Application.Email" class="form-control" readonly />
+                <span asp-validation-for="Application.Email" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Application.DateOfBirth" class="control-label"></label>
+                <input asp-for="Application.DateOfBirth" class="form-control" type="date"/>
+                <span asp-validation-for="Application.DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Application.Occupation" class="control-label"></label>
+                <input asp-for="Application.Occupation" class="form-control" />
+                <span asp-validation-for="Application.Occupation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Application.CompanyName" class="control-label"></label>
+                <input asp-for="Application.CompanyName" class="form-control" />
+                <span asp-validation-for="Application.CompanyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Application.CompanyAddress" class="control-label"></label>
+                <input asp-for="Application.CompanyAddress" class="form-control" />
+                <span asp-validation-for="Application.CompanyAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Application.CompanyPostalCode" class="control-label"></label>
+                <input asp-for="Application.CompanyPostalCode" class="form-control" />
+                <span asp-validation-for="Application.CompanyPostalCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Application.CompanyPhone" class="control-label"></label>
+                <input asp-for="Application.CompanyPhone" class="form-control" />
+                <span asp-validation-for="Application.CompanyPhone" class="text-danger"></span>
+            </div>
+@*             <div class="form-group">
+                <label asp-for="Application.ShareholderOne" class="control-label"></label>
+                <input asp-for="Application.ShareholderOne" class="form-control" />
+                <span asp-validation-for="Application.ShareholderOne" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Application.ShareholderTwo" class="control-label"></label>
+                <input asp-for="Application.ShareholderTwo" class="form-control" />
+                <span asp-validation-for="Application.ShareholderTwo" class="text-danger"></span>
+            </div> *@
+
+            <div class="form-group">
+                <label asp-for="Application.ShareholderOne" class="control-label"></label>
+                <select asp-for="Application.ShareholderOne" class="form-control" asp-items="@(new SelectList(Model.MemberOptions, "MemberID", "FullName"))">
+                    <option value="">-- Select a Shareholder --</option>
+                </select>
+                <span asp-validation-for="Application.ShareholderOne" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Application.ShareholderTwo" class="control-label"></label>
+                <select asp-for="Application.ShareholderTwo" class="form-control" asp-items="@(new SelectList(Model.MemberOptions, "MemberID", "FullName"))">
+                    <option value="">-- Select a Shareholder --</option>
+                </select>
+                <span asp-validation-for="Application.ShareholderTwo" class="text-danger"></span>
+            </div>
+
+
+@*             <div class="form-group">
+                <label asp-for="Application.ApplicationStatus" class="control-label"></label>
+                <select asp-for="Application.ApplicationStatus" class="form-control">
+                    <option value="">Select Application Status</option>
+                    <option value="Waitlisted">Waitlisted</option>
+                    <option value="On-Hold">On-Hold</option>
+                    <option value="Denied">Denied</option>
+                    <option value="Accepted">Accepted</option>
+                </select>
+                <span asp-validation-for="Application.ApplicationStatus" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <label asp-for="Application.ApplicationStatus" class="control-label"></label>
+                <input asp-for="Application.ApplicationStatus" class="form-control" readonly />
+                <span asp-validation-for="Application.ApplicationStatus" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Application.SubmissionDate" class="control-label"></label>
+                <input asp-for="Application.SubmissionDate" class="form-control" />
+                <span asp-validation-for="Application.SubmissionDate" class="text-danger"></span>
+            </div>
+
+            <!-- Membership Tier Dropdown -->
+            <div class="form-group">
+                <label asp-for="Application.MembershipTier" class="control-label"></label>
+                <select asp-for="Application.MembershipTier" class="form-control">
+                    <option value="">Select a Tier</option>
+                    <option value="Gold">Gold</option>
+                    <option value="Silver">Silver</option>
+                    <option value="Bronze">Bronze</option>
+                </select>
+                <span asp-validation-for="Application.MembershipTier" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

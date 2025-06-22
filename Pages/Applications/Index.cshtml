@@ -1,0 +1,229 @@
+﻿@* @page
+@model BAIS3230Project.Pages.Applications.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.applicationList[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.applicationList[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.applicationList[0].Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.applicationList[0].City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.applicationList[0].Province)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.applicationList[0].PostalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.applicationList[0].Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.applicationList[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.applicationList[0].DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.applicationList[0].Occupation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.applicationList[0].CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.applicationList[0].CompanyAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.applicationList[0].CompanyPostalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.applicationList[0].CompanyPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.applicationList[0].ShareholderOne)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.applicationList[0].ShareholderTwo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.applicationList[0].ApplicationStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.applicationList[0].SubmissionDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.applicationList) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Province)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Occupation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyPostalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShareholderOne)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShareholderTwo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubmissionDate)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.MembershipTier)
+            </td>
+           <td>
+                <a asp-page="./Edit" asp-route-id="@item.ApplicationID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ApplicationID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ApplicationID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+ *@
+
+@page
+@model BAIS3230Project.Pages.Applications.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<style>
+    .table-scroll {
+        overflow-x: auto;
+        width: 100%;
+    }
+
+        .table-scroll table {
+            min-width: 1200px; /* Adjust as needed based on content */
+            border-collapse: collapse;
+        }
+</style>
+
+<div class="table-scroll">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.applicationList[0].LastName)</th>
+                <th>@Html.DisplayNameFor(model => model.applicationList[0].FirstName)</th>
+                <th>@Html.DisplayNameFor(model => model.applicationList[0].Address)</th>
+                <th>@Html.DisplayNameFor(model => model.applicationList[0].City)</th>
+                <th>@Html.DisplayNameFor(model => model.applicationList[0].Province)</th>
+                <th>@Html.DisplayNameFor(model => model.applicationList[0].PostalCode)</th>
+                <th>@Html.DisplayNameFor(model => model.applicationList[0].Phone)</th>
+                <th>@Html.DisplayNameFor(model => model.applicationList[0].Email)</th>
+                <th>@Html.DisplayNameFor(model => model.applicationList[0].DateOfBirth)</th>
+                <th>@Html.DisplayNameFor(model => model.applicationList[0].Occupation)</th>
+                <th>@Html.DisplayNameFor(model => model.applicationList[0].CompanyName)</th>
+                <th>@Html.DisplayNameFor(model => model.applicationList[0].CompanyAddress)</th>
+                <th>@Html.DisplayNameFor(model => model.applicationList[0].CompanyPostalCode)</th>
+                <th>@Html.DisplayNameFor(model => model.applicationList[0].CompanyPhone)</th>
+                <th>@Html.DisplayNameFor(model => model.applicationList[0].ShareholderOne)</th>
+                <th>@Html.DisplayNameFor(model => model.applicationList[0].ShareholderTwo)</th>
+                <th>@Html.DisplayNameFor(model => model.applicationList[0].ApplicationStatus)</th>
+                <th>@Html.DisplayNameFor(model => model.applicationList[0].SubmissionDate)</th>
+                <th>@Html.DisplayNameFor(model => model.applicationList[0].MembershipTier)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.applicationList)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                    <td>@Html.DisplayFor(modelItem => item.City)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Province)</td>
+                    <td>@Html.DisplayFor(modelItem => item.PostalCode)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Phone)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DateOfBirth)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Occupation)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CompanyName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CompanyAddress)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CompanyPostalCode)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CompanyPhone)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ShareholderOne)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ShareholderTwo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ApplicationStatus)</td>
+                    <td>@Html.DisplayFor(modelItem => item.SubmissionDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.MembershipTier)</td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.ApplicationID">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.ApplicationID">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.ApplicationID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

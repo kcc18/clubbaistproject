@@ -1,0 +1,62 @@
+﻿@page
+@model BAIS3230Project.Pages.MyReservation.IndexModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+
+    // grab any one-time message from TempData
+    var msg = TempData["StatusMessage"] as string;
+
+}
+
+@if (!string.IsNullOrEmpty(msg))
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @msg
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+
+<h2>My Tee Time Reservations</h2>
+
+@if (Model.MyReservations != null && Model.MyReservations.Count > 0)
+{
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Date</th>
+                <th>Tee Time</th>
+
+                <th>Member ID</th>
+                <th>Number of Players</th>
+                <th>Phone</th>
+                <th>Number of Carts</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var reservation in Model.MyReservations)
+            {
+                <tr>
+                    <td>@reservation.TeeDate.ToString("yyyy-MM-dd")</td>
+                    <td>@reservation.ScheduledTeeTime.ToString(@"hh\:mm")</td>
+                    <td>@reservation.MemberID</td>
+                    <td>@reservation.NumberOfPlayers</td>
+                    <td>@reservation.Phone</td>
+                    <td>@reservation.NumberOfCarts</td>
+                    <td>
+                        <a asp-page="/MyReservation/Edit" asp-route-id="@reservation.TeeTimeID">Edit</a> |
+                        <a asp-page="/MyReservation/Details" asp-route-id="@reservation.TeeTimeID">Details</a> |
+                        <a asp-page="/MyReservation/Delete" asp-route-id="@reservation.TeeTimeID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+else
+{
+    <p>You have no reservations.</p>
+}

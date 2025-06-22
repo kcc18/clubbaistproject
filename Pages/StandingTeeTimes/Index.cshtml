@@ -1,0 +1,117 @@
+﻿@page
+@model BAIS3230Project.Pages.StandingTeeTimes.IndexModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+
+    // grab any one-time message from TempData
+    var msg = TempData["StatusMessage"] as string;
+}
+
+@if (!string.IsNullOrEmpty(msg))
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @msg
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+<h1>Standing Tee Index</h1>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.standingTeeTimeList[0].MemberID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.standingTeeTimeList[0].RequestedStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.standingTeeTimeList[0].RequestedEndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.standingTeeTimeList[0].RequestedTeeTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.standingTeeTimeList[0].PriorityNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.standingTeeTimeList[0].EmployeeID)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.standingTeeTimeList[0].NumberOfPlayers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.standingTeeTimeList[0].OccurrenceDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.standingTeeTimeList[0].Status)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.standingTeeTimeList) {
+        <tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.MemberID)
+			</td>
+			<td>
+				@item.RequestedStartDate.ToString("yyyy-MM-dd") <!-- Display only the date -->
+			</td>
+                    <td>
+                        @if (item.RequestedEndDate.HasValue)
+                        {
+                            @item.RequestedEndDate.Value.ToString("yyyy-MM-dd")
+                        }
+                        else
+                        {
+                            @:N/A <!-- or just leave it empty if you want -->
+                        }
+                    </td>
+
+			<td>
+				@item.RequestedTeeTime
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.PriorityNumber)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.EmployeeID)
+			</td>
+
+			<td>
+				@Html.DisplayFor(modelItem => item.NumberOfPlayers)
+			</td>
+			<td>
+				@item.OccurrenceDate.ToString("yyyy-MM-dd")
+			</td>
+			<td>
+				@item.Status
+			</td>
+
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.StandingTeeTimeID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.StandingTeeTimeID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.StandingTeeTimeID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

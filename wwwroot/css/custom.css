@@ -1,0 +1,80 @@
+﻿/* Custom Font for Body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Custom Navbar */
+.navbar {
+    background-color: #007bff;
+}
+
+
+/* Buttons */
+.btn {
+    border-radius: 0.25rem;
+    padding: 0.5rem 1.5rem;
+    font-size: 16px;
+}
+
+/* Form Inputs */
+.form-control {
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    padding: 10px;
+}
+
+/* Card Styling */
+.card {
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+    background-color: #ccc;
+    color: white;
+    text-align: center;
+}
+
+
+/* custom css for applicationapproval index page*/
+
+
+/* Make headers bold and centered */
+.table th {
+    text-align: center;
+    font-weight: 600;
+    background-color: #f8f9fa;
+}
+
+/* Add padding and wrap long text */
+.table td {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 200px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .table td,
+    .table th {
+        font-size: 0.875rem;
+        padding: 0.5rem;
+    }
+}
+
+/* custom css for application index page*/
+
+.table-scroll {
+    overflow-x: auto;
+    width: 100%;
+}
+
+    .table-scroll table {
+        min-width: 1200px; /* or more depending on your content */
+        border-collapse: collapse;
+    }
+

@@ -1,0 +1,86 @@
+﻿@page
+@model BAIS3230Project.Pages.TeeTimes.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+
+    // grab any one-time message from TempData
+    var msg = TempData["StatusMessage"] as string;
+
+}
+
+@if (!string.IsNullOrEmpty(msg))
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @msg
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.teeTimeList[0].TeeTimeID)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.teeTimeList[0].TeeDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.teeTimeList[0].ScheduledTeeTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.teeTimeList[0].MemberID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.teeTimeList[0].NumberOfPlayers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.teeTimeList[0].Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.teeTimeList[0].NumberOfCarts)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.teeTimeList) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeeTimeID)
+            </td>
+            <td> 
+                @Html.DisplayFor(modelItem => item.TeeDate) 
+            </td> 
+            <td>
+                @Html.DisplayFor(modelItem => item.ScheduledTeeTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemberID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfPlayers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfCarts)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.TeeTimeID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.TeeTimeID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.TeeTimeID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

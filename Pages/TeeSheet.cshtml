@@ -1,0 +1,45 @@
+﻿@page
+@model BAIS3230Project.Pages.TeeSheetModel
+@{
+    ViewData["Title"] = "Daily Tee Sheet";
+}
+
+<h2>Club BAIST - Daily Tee Sheet</h2>
+
+<form method="get">
+    <div class="form-group mb-3">
+        <label for="teeDate">Date:</label>
+        <input type="date" id="teeDate" name="TeeSheetDate" value="@Model.TeeSheetDate.ToString("yyyy-MM-dd")" class="form-control" onchange="this.form.submit()" />
+    </div>
+    <div class="mb-4">
+        <strong>Day of Week:</strong> @Model.TeeSheetDate.DayOfWeek
+    </div>
+</form>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Time</th>
+            <th>Member ID</th>
+            <th>Number of Players</th>
+            <th>Phone</th>
+            <th>Number of Carts</th>
+            <th>Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tee in Model.TeeSheetEntries.OrderBy(t => t.TeeTime))
+        {
+            <tr>
+                <td>@tee.TeeTime.ToString(@"hh\:mm")</td>
+                <td>@(tee.Type == "Event" ? "-" : tee.MemberID.ToString())</td>
+                <td>@(tee.Type == "Event" ? "-" : (tee.NumberOfPlayers?.ToString() ?? "0"))</td>
+                <td>@(tee.Type == "Event" ? "-" : tee.Phone)</td>
+                <td>@(tee.Type == "Event" ? "-" : (tee.NumberOfCarts?.ToString() ?? "0"))</td>
+                <td>@tee.Type</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+

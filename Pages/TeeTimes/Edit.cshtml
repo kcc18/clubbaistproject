@@ -1,0 +1,61 @@
+﻿@page "{id:int}"
+@model BAIS3230Project.Pages.TeeTimes.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>TeeTime</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TeeTime.TeeTimeID" />
+            <div class="form-group">
+                <label asp-for="TeeTime.TeeDate" class="control-label"></label>
+                <input asp-for="TeeTime.TeeDate" class="form-control" type="date" />
+                <span asp-validation-for="TeeTime.TeeDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeeTime.ScheduledTeeTime" class="control-label"></label>
+                <input asp-for="TeeTime.ScheduledTeeTime" class="form-control" type="time"/>
+                <span asp-validation-for="TeeTime.ScheduledTeeTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeeTime.MemberID" class="control-label"></label>
+                <input asp-for="TeeTime.MemberID" class="form-control" />
+                <span asp-validation-for="TeeTime.MemberID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeeTime.NumberOfPlayers" class="control-label"></label>
+                <input asp-for="TeeTime.NumberOfPlayers" class="form-control" />
+                <span asp-validation-for="TeeTime.NumberOfPlayers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeeTime.Phone" class="control-label"></label>
+                <input asp-for="TeeTime.Phone" class="form-control" />
+                <span asp-validation-for="TeeTime.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeeTime.NumberOfCarts" class="control-label"></label>
+                <input asp-for="TeeTime.NumberOfCarts" class="form-control" />
+                <span asp-validation-for="TeeTime.NumberOfCarts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@Model.Message
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
