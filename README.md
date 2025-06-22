@@ -1,58 +1,59 @@
-# BAIS3230Project
+# CLUBBAIST Project (BAIS3230)
 
-## To-do
-1. Add MyReservations page so that when a users logged in they can see only they're own reservations and do CRUD on it. (double check what each role can do)
-2. Events need to block off teetime/standingteetime times
-3. double-check every validation in entity and make sure they are working on forms
-4. UI Design
-5. 
+This is a back-end focused ASP.NET Core Razor Pages application developed as part of the BAIS3230 coursework. The goal of this project was to implement core business use cases and explore server-side concepts such as identity, authorization, validation, and role-based access control.
 
-MAYBE ADD THIS TO DB
+> ⚠️ Note: This project is primarily focused on **back-end logic and functionality**. The UI is functional but not polished, as front-end design was not the objective.
 
-ALTER TABLE Members
-ADD CONSTRAINT CK_AccountStatus CHECK (AccountStatus IN ('Good', 'Inactive', 'Suspended'));
+---
 
-## Notes
+## 🧩 Features Implemented
 
-### Register, login, logout, registermessage information
+- **User Authentication & Authorization** using ASP.NET Core Identity
+- **Role-based Access Control** (Admins, Members)
+- **Reservation System** with full CRUD for users (based on role)
+- **Entity Validation** on both front-end and server-side
+- **Admin Functionality** for managing tee times and memberships
+- **Event Scheduling** that affects reservation availability
 
-https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-9.0&tabs=visual-studio
+---
 
-### Disable default account verification
-With the default templates, the user is redirected to the Account.RegisterConfirmation where they can select a link to have the account confirmed. The default Account.RegisterConfirmation is used only for testing, automatic account verification should be disabled in a production app.
+## 📌 Use Cases Completed (from course requirements)
 
-To require a confirmed account and prevent immediate login at registration, set DisplayConfirmAccountLink = false in /Areas/Identity/Pages/Account/RegisterConfirmation.cshtml.cs
+- Users can register/login/logout
+- Authenticated users can view and manage their own reservations
+- Admins can create, update, and delete tee times
+- Entity-based validation rules are applied across forms
+- Events block off tee time availability as expected
 
-### Notes about validation
+---
 
-**Frontend Validation**:
-When you submit the form from your Razor Page, the client-side validation will work if you have the necessary JavaScript libraries enabled (e.g., jQuery, jQuery validation). Razor will automatically apply the data annotations for client-side validation based on the model annotations.
+## 🚧 Known Gaps / To-Do
 
-**Back-End Validation**:
-When the form is submitted, the ModelState.IsValid check in the OnPost method will ensure that the data passed to the backend meets the criteria you've defined with the annotations. If ModelState is invalid, you can return the page with the validation errors displayed to the user.
+This project met the course use case requirements, but some items are either incomplete or left for future enhancement:
 
-### Things to research
+- [ ] MyReservations page to isolate each user’s data and allow full CRUD
+- [ ] Complete front-end styling for better user experience
+- [ ] Additional validation testing for edge cases
+- [ ] Finalize role-based page restrictions
 
-Only certain users will be able to access certain pages on the application. I need to figure out how to properly assign roles and allow only certain users to access certain parts of the site.
+---
 
-### Important note about Razor CRUD scaffolding
+## 🛠 Tech Stack
 
-This scaffolding does not see relationships if you did not use EF Core power tools to create your entities, etc. 
-To be able to properly use CRUD and scaffold it properly you needed to use this tool before hand so that it creates relationships between your entities.
+- **.NET 9.0**
+- **Razor Pages**
+- **Entity Framework Core**
+- **SQL Server**
+- **Identity & Role Management**
 
-## Useful links
+---
 
-### Page for identity for asp.net
-https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-9.0&tabs=visual-studio
+## 📂 Developer Notes
 
-### Policy authentication for identity in razor pages
+These notes were helpful during development and are retained for future developers or personal reference.
 
-https://learn.microsoft.com/en-us/aspnet/core/security/authorization/policies?view=aspnetcore-9.0#apply-policies-to-razor-pages
+### 🛡️ Identity Customization
 
-
-###	use this link to setup scaffolded pages
-"https://learn.microsoft.com/en-us/aspnet/core/security/authentication/scaffold-identity?view=aspnetcore-9.0&tabs=visual-studio#scaffold-identity-into-a-razor-project-with-authorization"
-
-### Blazor quickgrid(for capstone)
-https://learn.microsoft.com/en-us/aspnet/core/blazor/components/quickgrid?view=aspnetcore-9.0&tabs=visual-studio
-
+- To disable the default account confirmation link, set:
+  ```csharp
+  DisplayConfirmAccountLink = false
