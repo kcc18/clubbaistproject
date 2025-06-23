@@ -6,7 +6,7 @@ This is a back-end focused ASP.NET Core Razor Pages application developed as par
 
 ---
 
-## 🧩 Features Implemented
+##  Features Implemented
 
 - **User Authentication & Authorization** using ASP.NET Core Identity
 - **Role-based Access Control** (Admins, Members)
@@ -17,7 +17,7 @@ This is a back-end focused ASP.NET Core Razor Pages application developed as par
 
 ---
 
-## 📌 Use Cases Completed (from course requirements)
+##  Use Cases Completed (from course requirements)
 
 - Users can register/login/logout
 - Authenticated users can view and manage their own reservations
@@ -27,7 +27,7 @@ This is a back-end focused ASP.NET Core Razor Pages application developed as par
 
 ---
 
-## 🚧 Known Gaps / To-Do
+##  Known Gaps / To-Do
 
 This project met the course use case requirements, but some items are either incomplete or left for future enhancement:
 
@@ -38,7 +38,7 @@ This project met the course use case requirements, but some items are either inc
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 - **.NET 9.0**
 - **Razor Pages**
@@ -48,12 +48,3 @@ This project met the course use case requirements, but some items are either inc
 
 ---
 
-## 📂 Developer Notes
-
-These notes were helpful during development and are retained for future developers or personal reference.
-
-### 🛡️ Identity Customization
-
-- To disable the default account confirmation link, set:
-  ```csharp
-  DisplayConfirmAccountLink = false
