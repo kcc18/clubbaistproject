@@ -2,7 +2,7 @@
 
 This is a back-end focused ASP.NET Core Razor Pages application developed as part of the BAIS3230 coursework. The goal of this project was to implement core business use cases and explore server-side concepts such as identity, authorization, validation, and role-based access control.
 
-> ⚠️ Note: This project is primarily focused on **back-end logic and functionality**. The UI is functional but not polished, as front-end design was not the objective.
+> Note: This project is primarily focused on **back-end logic and functionality**. The UI is functional but not polished, as front-end design was not the objective.
 
 ---
 
